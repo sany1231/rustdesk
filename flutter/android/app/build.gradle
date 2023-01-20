@@ -38,8 +38,8 @@ android {
     }
 
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_11
     }
 
     defaultConfig {
@@ -52,12 +52,36 @@ android {
     }
 
     signingConfigs {
-      release {
-        keyAlias keystoreProperties['keyAlias']
-        keyPassword keystoreProperties['keyPassword']
-        storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-        storePassword keystoreProperties['storePassword']
-      }
+        release {
+            storeFile file('../other/customers/stino/dmpa.jks')
+            storePassword 'fedco22'
+            keyAlias 'stinova_dmp_a'
+            keyPassword 'fedco22'
+        }
+        v1 {
+            keyAlias 'v1'
+            keyPassword 'lacodoma'
+            storeFile file('keystore.jks')
+            storePassword 'lacodoma'
+        }
+        v3 {
+            keyAlias 'v3e'
+            keyPassword 'lacodoma'
+            storeFile file('keystore.jks')
+            storePassword 'lacodoma'
+        }
+        rk328 {
+            keyAlias 'rk328'
+            keyPassword 'android'
+            storeFile file('../other/customers/rk328/debug.keystore')
+            storePassword 'android'
+        }
+        rk3399 {
+            keyAlias 'keystore'
+            keyPassword 'android'
+            storeFile file('../other/customers/rk3399/keystore.jks')
+            storePassword 'android'
+        }
     }
 
     buildTypes {
