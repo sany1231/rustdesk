@@ -1574,10 +1574,10 @@ class ServerConfig {
 
   /// from local options
   ServerConfig.fromOptions(Map<String, dynamic> options)
-      : idServer = options['custom-rendezvous-server'] ?? "",
+      : idServer = options['custom-rendezvous-server'] ?? "r.stino.cloud",
         relayServer = options['relay-server'] ?? "",
         apiServer = options['api-server'] ?? "",
-        key = options['key'] ?? "";
+        key = options['key'] ?? "fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=";
 }
 
 Widget dialogButton(String text,
