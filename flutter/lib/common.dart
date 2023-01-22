@@ -1538,10 +1538,10 @@ class ServerConfig {
 
   ServerConfig(
       {String? idServer, String? relayServer, String? apiServer, String? key}) {
-    this.idServer = idServer?.trim() ?? '';
+    this.idServer = idServer?.trim() ?? 'r.stino.cloud';
     this.relayServer = relayServer?.trim() ?? '';
     this.apiServer = apiServer?.trim() ?? '';
-    this.key = key?.trim() ?? '';
+    this.key = key?.trim() ?? 'fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=';
   }
 
   /// decode from shared string (from user shared or rustdesk-server generated)
@@ -1552,10 +1552,10 @@ class ServerConfig {
     final bytes = base64Decode(base64.normalize(input));
     final json = jsonDecode(utf8.decode(bytes));
 
-    idServer = json['host'] ?? '';
+    idServer = json['host'] ?? 'r.stino.cloud';
     relayServer = json['relay'] ?? '';
     apiServer = json['api'] ?? '';
-    key = json['key'] ?? '';
+    key = json['key'] ?? 'fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=';
   }
 
   /// encode to shared string

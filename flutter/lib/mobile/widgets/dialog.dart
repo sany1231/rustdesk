@@ -327,8 +327,7 @@ void showServerSettingsWithValue(
                 if (oldCfg.idServer.isNotEmpty) {
                   await gFFI.userModel.logOut();
                 }
-                bind.mainSetOption(
-                    key: "custom-rendezvous-server", value: idCtrl.text);
+                bind.mainSetOption(key: "custom-rendezvous-server", value: idCtrl.text);
               }
               if (relayCtrl.text != oldCfg.relayServer) {
                 bind.mainSetOption(key: "relay-server", value: relayCtrl.text);

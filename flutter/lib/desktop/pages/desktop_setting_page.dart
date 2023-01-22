@@ -908,8 +908,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
       RxString idErrMsg = ''.obs;
       RxString relayErrMsg = ''.obs;
       RxString apiErrMsg = ''.obs;
-      var idController =
-          TextEditingController(text: old('custom-rendezvous-server'));
+      var idController = TextEditingController(text: old('custom-rendezvous-server'));
       var relayController = TextEditingController(text: old('relay-server'));
       var apiController = TextEditingController(text: old('api-server'));
       var keyController = TextEditingController(text: old('key'));
@@ -947,8 +946,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
           await gFFI.userModel.logOut();
         }
         // should set one by one
-        await bind.mainSetOption(
-            key: 'custom-rendezvous-server', value: idServer);
+        await bind.mainSetOption(key: 'custom-rendezvous-server', value: idServer);
         await bind.mainSetOption(key: 'relay-server', value: relayServer);
         await bind.mainSetOption(key: 'api-server', value: apiServer);
         await bind.mainSetOption(key: 'key', value: key);
@@ -956,8 +954,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
       }
 
       submit() async {
-        bool result = await set(idController.text, relayController.text,
-            apiController.text, keyController.text);
+        bool result = await set(idController.text, relayController.text, apiController.text, keyController.text);
         if (result) {
           setState(() {});
           showToast(translate('Successful'));
@@ -977,12 +974,10 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
                 relayController.text = sc.relayServer;
                 apiController.text = sc.apiServer;
                 keyController.text = sc.key;
-                Future<bool> success =
-                    set(sc.idServer, sc.relayServer, sc.apiServer, sc.key);
+                Future<bool> success = set(sc.idServer, sc.relayServer, sc.apiServer, sc.key);
                 success.then((value) {
                   if (value) {
-                    showToast(
-                        translate('Import server configuration successfully'));
+                    showToast(translate('Import server configuration successfully'));
                   } else {
                     showToast(translate('Invalid server configuration'));
                   }

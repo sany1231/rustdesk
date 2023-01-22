@@ -7,7 +7,13 @@ import * as globals from "./globals";
 import { decompress, mapKey, sleep } from "./common";
 
 const PORT = 21116;
+const KEY = [
+  "fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo="
+];
 const HOSTS = [
+  "r.stino.cloud"
+];
+const HOSTS_OLD = [
   "rs-sg.rustdesk.com",
   "rs-cn.rustdesk.com",
   "rs-us.rustdesk.com",
@@ -46,6 +52,7 @@ export default class Connection {
 
   async start(id: string) {
     try {
+    this.msgbox("error","Connection Start","close");
       await this._start(id);
     } catch (e: any) {
       this.msgbox(
@@ -90,7 +97,7 @@ export default class Connection {
     const nat_type = rendezvous.NatType.SYMMETRIC;
     const punch_hole_request = rendezvous.PunchHoleRequest.fromPartial({
       id,
-      licence_key: localStorage.getItem("key") || undefined,
+      licence_key: localStorage.getItem("key") || KEY[0],
       conn_type,
       nat_type,
       token: localStorage.getItem("access_token") || undefined,

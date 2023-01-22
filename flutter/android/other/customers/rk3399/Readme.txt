@@ -1,0 +1,3 @@
+
+password: android
+alias: keystore
