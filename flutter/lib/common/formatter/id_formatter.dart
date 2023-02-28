@@ -45,6 +45,7 @@ String formatID(String id) {
       newID += " ${id2.substring(i, i + 3)}";
     }
   }
+  print("New ID is: $newID");
   return newID;
 }
 

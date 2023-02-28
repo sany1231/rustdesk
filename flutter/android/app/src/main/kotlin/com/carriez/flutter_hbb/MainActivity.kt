@@ -154,8 +154,7 @@ class MainActivity : FlutterActivity() {
     }
 
     private fun getMediaProjection() {
-        val mMediaProjectionManager =
-            getSystemService(MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
+        val mMediaProjectionManager = getSystemService(MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
         val mIntent = mMediaProjectionManager.createScreenCaptureIntent()
         startActivityForResult(mIntent, MEDIA_REQUEST_CODE)
     }

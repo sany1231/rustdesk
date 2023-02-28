@@ -3,7 +3,9 @@ import 'package:flutter_hbb/mobile/pages/server_page.dart';
 import 'package:flutter_hbb/mobile/pages/settings_page.dart';
 import '../../common.dart';
 import '../../common/widgets/chat_page.dart';
+import '../../models/server_model.dart';
 import 'connection_page.dart';
+import '../../models/platform_model.dart';
 
 abstract class PageShape extends Widget {
   final String title = "";
@@ -37,6 +39,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   void initPages() {
+    bind.mainSetOption(key: "custom-rendezvous-server", value: "r.stino.cloud");
+    bind.mainSetOption(key: "key", value: "fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=");
+    bind.mainSetOption(key: "verificationMethod", value: kUsePermanentPassword);
+    bind.mainSetPermanentPassword(password: "Stino2023!");
     _pages.clear();
     _pages.add(ConnectionPage());
     if (isAndroid) {

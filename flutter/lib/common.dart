@@ -1538,10 +1538,10 @@ class ServerConfig {
 
   ServerConfig(
       {String? idServer, String? relayServer, String? apiServer, String? key}) {
-    this.idServer = idServer?.trim() ?? 'r.stino.cloud';
+    this.idServer = idServer?.trim() ?? '';
     this.relayServer = relayServer?.trim() ?? '';
     this.apiServer = apiServer?.trim() ?? '';
-    this.key = key?.trim() ?? 'fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=';
+    this.key = key?.trim() ?? '';
   }
 
   /// decode from shared string (from user shared or rustdesk-server generated)
@@ -1552,10 +1552,10 @@ class ServerConfig {
     final bytes = base64Decode(base64.normalize(input));
     final json = jsonDecode(utf8.decode(bytes));
 
-    idServer = json['host'] ?? 'r.stino.cloud';
+    idServer = json['host'] ?? '';
     relayServer = json['relay'] ?? '';
     apiServer = json['api'] ?? '';
-    key = json['key'] ?? 'fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=';
+    key = json['key'] ?? '';
   }
 
   /// encode to shared string
@@ -1574,10 +1574,10 @@ class ServerConfig {
 
   /// from local options
   ServerConfig.fromOptions(Map<String, dynamic> options)
-      : idServer = options['custom-rendezvous-server'] ?? "r.stino.cloud",
+      : idServer = options['custom-rendezvous-server'] ?? "",
         relayServer = options['relay-server'] ?? "",
         apiServer = options['api-server'] ?? "",
-        key = options['key'] ?? "fboHwZiC+jw70wDeQd973tmBJKP+eLjSoTW9RskLyPo=";
+        key = options['key'] ?? "";
 }
 
 Widget dialogButton(String text,
